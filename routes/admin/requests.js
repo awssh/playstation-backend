@@ -5,9 +5,6 @@ import adminAuth from "../../middleware/adminAuth.js";
 const router = express.Router();
 
 
-
-
-
 router.get("/pending/:tournamentId", adminAuth, async (req, res) => {
   const result = await db.query(
     `
