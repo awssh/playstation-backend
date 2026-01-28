@@ -34,7 +34,6 @@ router.get("/:tournamentId", async (req, res) => {
 });
 
 
-   //GENERATE FIRST ROUND
 
 router.post("/generate/:tournamentId", adminAuth,async (req, res) => {
   const { tournamentId } = req.params;
@@ -57,7 +56,6 @@ router.post("/generate/:tournamentId", adminAuth,async (req, res) => {
     return res.status(400).json({ message: "Not enough players" });
   }
 
-  // create round 1
   for (let i = 0; i < players.length; i += 2) {
 
     await db.query(
@@ -132,7 +130,6 @@ router.put("/:matchId/winner",adminAuth, async (req, res) => {
   res.json({ message: "Winner saved" });
 });
 
-//GENERATE NEXT ROUND
 
 router.post("/next-round/:tournamentId",adminAuth, async (req, res) => {
   const { tournamentId } = req.params;
